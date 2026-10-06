@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a69731bc84b1f46acdefa03943a378, type: 3}
+  m_Name: VaanamPalette
+  m_EditorClassIdentifier: Vaanam::Vaanam.World.VaanamPalette
+  birdPrimary:
+  - {fileID: 2100000, guid: 84b2c45ea5e8e3048b16d21ea2fdd1c1, type: 2}
+  - {fileID: 2100000, guid: 8bff3ef82cd1c5941a698bf667bb29bd, type: 2}
+  birdSecondary:
+  - {fileID: 2100000, guid: 7e4fb12ea797ea943a960fdd8cea7627, type: 2}
+  - {fileID: 2100000, guid: e53cc018a99f9554dbd126e7e1830e18, type: 2}
+  beak: {fileID: 2100000, guid: d26bea39abf52d648bcc831a5b542150, type: 2}
+  eye: {fileID: 2100000, guid: fa2879c07788e8b4281abe480a0aed50, type: 2}
+  eyeWhite: {fileID: 2100000, guid: 18c6b8971dae4c44b98315f7b9a55587, type: 2}
+  ringGold: {fileID: 2100000, guid: 51dd37363c25b7449892ca15b4a07fa1, type: 2}
+  ringPassed: {fileID: 2100000, guid: 980b17976d3510642bba51825468939b, type: 2}
+  star: {fileID: 2100000, guid: 46e560bba0bec374280bd02153d45a60, type: 2}
+  kolam: {fileID: 2100000, guid: e415fa994b2bbcd43ae98e97e5a9302f, type: 2}
+  cloud: {fileID: 2100000, guid: 58d46dbf087f0eb43bc8ff9b2ab3e9cb, type: 2}
+  duckBar: {fileID: 2100000, guid: c5a1be643cd7f5545803d841067e5337, type: 2}
+  jumpWall: {fileID: 2100000, guid: 51e9a83ccd7a2074a898c4eff22d6d1b, type: 2}
+  ground: {fileID: 2100000, guid: 882a354015a319e478b4b76c6453b205, type: 2}
+  groundDark: {fileID: 2100000, guid: 33b38946463b32b4ab3475489f55961d, type: 2}
+  hill: {fileID: 2100000, guid: ba9e09eac7b85924ca97c944d227e81f, type: 2}
+  trunk: {fileID: 2100000, guid: 9937770450c79bb49a0cf7849e30bb4c, type: 2}
+  leaves: {fileID: 2100000, guid: 9b6c544100af92c40876851019c6d2c8, type: 2}
+  water: {fileID: 2100000, guid: 3186ece75c97d55478aab18a912cafed, type: 2}
+  house: {fileID: 2100000, guid: 3b5bb5788971905438fb2c6f6c1cce94, type: 2}
+  roof: {fileID: 2100000, guid: 9cee47cc26e30cb49ab216b7056089ee, type: 2}
+  pot: {fileID: 2100000, guid: e200cf4c59281df4ab40835f0f0079bf, type: 2}
+  sugarcane: {fileID: 2100000, guid: 59105d441b388094b87e286b0f36b6d9, type: 2}
+  sun: {fileID: 2100000, guid: c71d894f8fd6db5448796276fe000d82, type: 2}
+  perch: {fileID: 2100000, guid: c05bfd9b823917042b78b77ebb8ec32f, type: 2}
+  kites:
+  - {fileID: 2100000, guid: 0f81980a3413051469a84de626f1031a, type: 2}
+  - {fileID: 2100000, guid: 088a4e46e5f4058428487d3690495d93, type: 2}
+  - {fileID: 2100000, guid: b053d5b4ce9c56343a43a99c9efd57b6, type: 2}
+  particle: {fileID: 2100000, guid: a2042041d616aa842abb458f72ff48b5, type: 2}

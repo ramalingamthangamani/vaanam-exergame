@@ -4,6 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Vaanam/Scenes/Vaanam.unity
+    guid: 3a2221f6fc78d0e4391edb83baaa0ef7
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5e3e9aa529fe08c458eca60d88958de8, type: 2}
   m_UseUCBPForAssetBundles: 0

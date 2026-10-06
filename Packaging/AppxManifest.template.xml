@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  MSIX manifest for the Microsoft Store (desktop Win32 app via the Desktop Bridge).
+  Tools/../Packaging/build-msix.ps1 fills in the __PLACEHOLDERS__ from your Partner
+  Center app identity and writes AppxManifest.xml next to the built game.
+
+  Why Desktop Bridge and not UWP: Unity's Win64 player + MediaPipe's native DLL run
+  as a normal desktop app; the Store accepts that inside an MSIX. No UWP build needed.
+-->
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap rescap">
+
+  <Identity Name="__IDENTITY_NAME__" Publisher="__PUBLISHER__" Version="__VERSION__" ProcessorArchitecture="x64" />
+
+  <Properties>
+    <DisplayName>Vaanam</DisplayName>
+    <PublisherDisplayName>__PUBLISHER_DISPLAY__</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+    <Description>Stretch your arms and fly. A webcam-controlled flying adventure for children aged 5 to 10, in Tamil and English. Camera frames never leave the device. No ads, no purchases, and every session ends with a calm sunset and a real-world task.</Description>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.22621.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="en-us" />
+    <Resource Language="ta-in" />
+  </Resources>
+
+  <Applications>
+    <Application Id="Vaanam" Executable="Vaanam.exe" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements
+        DisplayName="Vaanam"
+        Description="Stretch your arms and fly."
+        BackgroundColor="#3A7BD5"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+    <!-- The whole game is the webcam. Microphone is for the optional voice words. -->
+    <DeviceCapability Name="webcam" />
+    <DeviceCapability Name="microphone" />
+  </Capabilities>
+</Package>

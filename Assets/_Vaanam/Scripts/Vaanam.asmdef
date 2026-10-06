@@ -2,7 +2,10 @@
   "name": "Vaanam",
   "rootNamespace": "Vaanam",
   "references": [
-    "Unity.InputSystem"
+    "Unity.InputSystem",
+    "UnityEngine.UI",
+    "Unity.TextMeshPro",
+    "Mediapipe.Runtime"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
@@ -11,6 +14,12 @@
   "precompiledReferences": [],
   "autoReferenced": true,
   "defineConstraints": [],
-  "versionDefines": [],
+  "versionDefines": [
+    {
+      "name": "com.github.homuler.mediapipe",
+      "expression": "0.10.0",
+      "define": "VAANAM_MEDIAPIPE"
+    }
+  ],
   "noEngineReferences": false
 }

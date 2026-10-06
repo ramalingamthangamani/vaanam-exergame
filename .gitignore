@@ -33,3 +33,8 @@ Thumbs.db
 
 # Large plugin tarball is tracked via Git LFS or re-downloaded; keep out of plain git
 Packages/*.tgz
+
+# Vaanam: the pose model is copied from the MediaPipe package by
+# "Vaanam > Build Main Scene" (or Vaanam > Setup > Copy MediaPipe Model)
+Assets/StreamingAssets/*.task
+Assets/StreamingAssets/*.task.meta

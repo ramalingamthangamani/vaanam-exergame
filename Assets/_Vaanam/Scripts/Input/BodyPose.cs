@@ -4,8 +4,16 @@ namespace Vaanam.Input
 {
     /// <summary>
     /// The small set of body points the game cares about.
-    /// All positions are normalized to the camera image: x and y in 0..1,
-    /// origin at top-left, exactly like MediaPipe gives them.
+    ///
+    /// Coordinates are normalized to the camera image: x and y in 0..1, origin at
+    /// the TOP-LEFT, y growing DOWN, exactly like MediaPipe gives them.
+    ///
+    /// IMPORTANT CONVENTION: the pose is in SCREEN (mirror) space. "LeftWrist" is
+    /// the wrist that appears on the LEFT of the mirrored webcam picture, which is
+    /// the child's RIGHT hand. We do this so that when the child tilts to the
+    /// right of the screen, the bird banks to the right of the screen. Tracking
+    /// sources are responsible for mirroring before filling this struct.
+    ///
     /// Keeping this struct tiny means the rest of the game never has to know
     /// which tracking library produced the data.
     /// </summary>
@@ -25,6 +33,9 @@ namespace Vaanam.Input
         public Vector2 ShoulderCenter => (LeftShoulder + RightShoulder) * 0.5f;
         public Vector2 HipCenter => (LeftHip + RightHip) * 0.5f;
         public float ShoulderWidth => Vector2.Distance(LeftShoulder, RightShoulder);
+
+        /// <summary>Where the body is across the picture, 0 = left edge, 1 = right edge.</summary>
+        public float BodyX => HipCenter.x;
 
         /// <summary>
         /// Roll in degrees. Positive when the right wrist is higher than the left.
@@ -68,5 +79,38 @@ namespace Vaanam.Input
                 return (ShoulderCenter.y - avgWristY) / w;
             }
         }
+
+        /// <summary>
+        /// Sideways lean of the upper body, in shoulder widths.
+        /// Positive when the shoulders are to the right of the hips (leaning right).
+        /// A second, very natural steering signal: small children steer with their
+        /// whole body, not just their arms.
+        /// </summary>
+        public float LeanRatio
+        {
+            get
+            {
+                float w = ShoulderWidth;
+                if (w < 0.001f) return 0f;
+                return (ShoulderCenter.x - HipCenter.x) / w;
+            }
+        }
+
+        /// <summary>
+        /// Height of the nose above the hips, in shoulder widths. Drops sharply
+        /// when the child ducks or crouches, which is how we detect "duck".
+        /// </summary>
+        public float NoseHeight
+        {
+            get
+            {
+                float w = ShoulderWidth;
+                if (w < 0.001f) return 0f;
+                return (HipCenter.y - Nose.y) / w;
+            }
+        }
+
+        /// <summary>True when the landmarks look like a real standing person.</summary>
+        public bool IsPlausible => ShoulderWidth > 0.02f && Confidence > 0.3f;
     }
 }
